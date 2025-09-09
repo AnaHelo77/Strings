@@ -1,87 +1,109 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
 
 :root {
-  --cor-destaque: #ed145b;
+  --cor-destaque: #00e5ff; /* Azul ciano neon */
+  --cor-brilho: #7b2cff; /* Roxo vibrante */
   --cor-gradiente-preto: linear-gradient(
     113deg,
-    #000 0%,
-    #1e2021 44.96%,
-    #1e2022 100%
+    #0d0d0d 0%,
+    #1a1a1a 44.96%,
+    #1f1f1f 100%
   );
+  --cor-borda: #4d4d4d;
 }
 
 * {
   margin: 0;
   padding: 0;
-  font-family: Montserrat;
-  box-sizing: border-box; /* Added for more predictable box model behavior */
+  font-family: 'Orbitron', sans-serif; /* Fonte futurista */
+  box-sizing: border-box;
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Using min-height to prevent mobile browser issues */
+  padding: 16px 21px 18px 21px;
   background: var(--cor-gradiente-preto);
+  height: 100vh;
   flex-direction: column;
-  padding: 1rem 1.3125rem 1.125rem 1.3125rem; /* Converted padding to rem for scalability */
 }
 
 .container {
   display: flex;
-  width: 100%; /* Changed to 100% for better flexibility */
-  max-width: 65rem; /* Added max-width to maintain the intended size on large screens */
+  width: 65rem;
   flex-direction: column;
   align-items: center;
   gap: 3rem;
   overflow: hidden;
+  border-radius: 1.25rem;
+  border: 1px solid var(--cor-borda);
+  padding: 2.5rem;
+  background: #1a1a1a;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
 }
 
 h1 {
   color: var(--cor-destaque);
   text-align: center;
-  font-size: 2.8rem;
-  font-weight: 600;
+  font-size: 3rem;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  text-shadow: 0 0 10px var(--cor-destaque);
 }
 
-.entrada-de-texto { /* Changed from ID to class */
+#entrada-de-texto {
   display: flex;
   height: 12rem;
-  padding: 1.4rem 2.5rem 2.5rem 2.5rem;
+  padding: 1.4rem 2.5rem;
   align-items: flex-start;
-  gap: 0.625rem;
   align-self: stretch;
   border-radius: 0.625rem;
-  background: #fff;
+  background: #252525;
+  color: #fff;
   font-size: 2rem;
-  width: 100%; /* Ensures it fills the container */
+  border: 2px solid var(--cor-brilho);
+  box-shadow: 0 0 15px rgba(123, 44, 255, 0.5);
+  transition: all 0.3s ease;
 }
 
-.entrada-de-texto::placeholder {
-  color: #828282;
+#entrada-de-texto:focus {
+  outline: none;
+  border-color: var(--cor-destaque);
+  box-shadow: 0 0 20px var(--cor-destaque);
+}
+
+#entrada-de-texto::placeholder {
+  color: #999;
   font-size: 2rem;
   font-weight: 400;
-  line-height: normal;
 }
 
-.botao-palavrachave { /* Changed from ID to class */
+#botao-palavrachave {
   display: flex;
-  padding: 1.25rem;
+  padding: 1.25rem 2.5rem;
   justify-content: center;
   align-items: center;
-  gap: 0.625rem;
   border-radius: 0.5rem;
   border: none;
-  background: var(--cor-destaque);
-  color: #000;
+  background: var(--cor-brilho);
+  color: #fff;
   font-size: 2.5rem;
   font-weight: 500;
-  line-height: normal;
-  width: 100%; /* Ensures it fills the container */
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 15px rgba(123, 44, 255, 0.5);
 }
 
-.resultado-palavrachave { /* Changed from ID to class */
+#botao-palavrachave:hover {
+  background: var(--cor-destaque);
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px var(--cor-destaque);
+}
+
+#resultado-palavrachave {
   display: flex;
   border-radius: 0.625rem;
   align-self: stretch;
@@ -92,18 +114,5 @@ h1 {
   max-width: 100%;
   max-height: 50vh;
   overflow: auto;
-  word-wrap: break-word; /* Added for better text wrapping */
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-  .entrada-de-texto,
-  .botao-palavrachave,
-  .resultado-palavrachave {
-    font-size: 1.5rem;
-    padding: 1rem;
-  }
+  text-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
 }
