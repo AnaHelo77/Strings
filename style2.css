@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --cor-destaque: #ed145b;
+  --cor-gradiente-preto: linear-gradient(
+    113deg,
+    #000 0%,
+    #1e2021 44.96%,
+    #1e2022 100%
+  );
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat;
+  box-sizing: border-box; /* Added for more predictable box model behavior */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Using min-height to prevent mobile browser issues */
+  background: var(--cor-gradiente-preto);
+  flex-direction: column;
+  padding: 1rem 1.3125rem 1.125rem 1.3125rem; /* Converted padding to rem for scalability */
+}
+
+.container {
+  display: flex;
+  width: 100%; /* Changed to 100% for better flexibility */
+  max-width: 65rem; /* Added max-width to maintain the intended size on large screens */
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  overflow: hidden;
+}
+
+h1 {
+  color: var(--cor-destaque);
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.entrada-de-texto { /* Changed from ID to class */
+  display: flex;
+  height: 12rem;
+  padding: 1.4rem 2.5rem 2.5rem 2.5rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  align-self: stretch;
+  border-radius: 0.625rem;
+  background: #fff;
+  font-size: 2rem;
+  width: 100%; /* Ensures it fills the container */
+}
+
+.entrada-de-texto::placeholder {
+  color: #828282;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.botao-palavrachave { /* Changed from ID to class */
+  display: flex;
+  padding: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: var(--cor-destaque);
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: normal;
+  width: 100%; /* Ensures it fills the container */
+}
+
+.resultado-palavrachave { /* Changed from ID to class */
+  display: flex;
+  border-radius: 0.625rem;
+  align-self: stretch;
+  color: var(--cor-destaque);
+  font-size: 2.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  max-width: 100%;
+  max-height: 50vh;
+  overflow: auto;
+  word-wrap: break-word; /* Added for better text wrapping */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .entrada-de-texto,
+  .botao-palavrachave,
+  .resultado-palavrachave {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+}
